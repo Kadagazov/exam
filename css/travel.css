@@ -1,0 +1,645 @@
+@charset "UTF-8";
+/* Scss Document */
+/*
+	HTML5 Reset :: style.css
+	----------------------------------------------------------
+	We have learned much from/been inspired by/taken code where offered from:
+
+	Eric Meyer					:: https://meyerweb.com
+	HTML5 Doctor				:: https://html5doctor.com
+	and the HTML5 Boilerplate	:: https://html5boilerplate.com
+
+-------------------------------------------------------------------------------*/
+/* Let's default this puppy out
+-------------------------------------------------------------------------------*/
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: normal;
+  vertical-align: baseline;
+  background: transparent; }
+
+article, aside, figure, footer, header, nav, section, details, summary {
+  display: block; }
+
+/* Handle box-sizing while better addressing child elements:
+   https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit; }
+
+/* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */
+/* Responsive images and other embedded objects
+*/
+img,
+object,
+embed {
+  max-width: 100%; }
+
+/*
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+	 In fact, it *will* cause problems with Google Maps' controls at small size.
+	If this is the case for you, try uncommenting the following:
+
+#map img {
+		max-width: none;
+}
+*/
+/* force a vertical scrollbar to prevent a jumpy page */
+html {
+  overflow-y: scroll; }
+
+/* we use a lot of ULs that aren't bulleted.
+	don't forget to restore the bullets within content. */
+ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none; }
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+del {
+  text-decoration: line-through; }
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted #000;
+  cursor: help; }
+
+/* tables still need cellspacing="0" in the markup */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+th {
+  font-weight: bold;
+  vertical-align: bottom; }
+
+td {
+  font-weight: normal;
+  vertical-align: top; }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; }
+
+input, select {
+  vertical-align: middle; }
+
+pre {
+  white-space: pre;
+  /* CSS2 */
+  white-space: pre-wrap;
+  /* CSS 2.1 */
+  white-space: pre-line;
+  /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word;
+  /* IE */ }
+
+input[type="radio"] {
+  vertical-align: text-bottom; }
+
+input[type="checkbox"] {
+  vertical-align: bottom; }
+
+.ie7 input[type="checkbox"] {
+  vertical-align: baseline; }
+
+.ie6 input {
+  vertical-align: text-bottom; }
+
+select, input, textarea {
+  font: 99% sans-serif; }
+
+table {
+  font-size: inherit;
+  font: 100%; }
+
+small {
+  font-size: 85%; }
+
+strong {
+  font-weight: bold; }
+
+td, td img {
+  vertical-align: top; }
+
+/* Make sure sup and sub don't mess with your line-heights https://gist.github.com/413930 */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+/* standardize any monospaced elements */
+pre, code, kbd, samp {
+  font-family: monospace, sans-serif; }
+
+/* hand cursor on clickable elements */
+.clickable,
+label,
+input[type=button],
+input[type=submit],
+input[type=file],
+button {
+  cursor: pointer; }
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {
+  margin: 0; }
+
+/* make buttons play nice in IE */
+button,
+input[type=button] {
+  width: auto;
+  overflow: visible; }
+
+/* scale images in IE7 more attractively */
+.ie7 img {
+  -ms-interpolation-mode: bicubic; }
+
+/* prevent BG image flicker upon hover
+   (commented out as usage is rare, and the filter syntax messes with some pre-processors)
+.ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
+*/
+/* let's clear some floats */
+.clearfix:before, .clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden; }
+
+.clearfix:after {
+  clear: both; }
+
+.clearfix {
+  zoom: 1; }
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  margin: auto;
+  padding: 15px;
+  border-color: #fff;
+  min-width: 1150px; }
+  body > div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+
+.content-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1110px;
+  height: 100%;
+  -ms-flex-item-align: center;
+  align-self: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+  margin: 0; }
+
+.header {
+  background-color: #045EA2;
+  background-image: url(../img/header-bg.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 740px; }
+  .header__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .header__logo {
+    width: 300px;
+    padding: 25px 0;
+    margin: 0 auto; }
+    .header__logo img {
+      width: 300px; }
+
+search-form {
+  text-align: center;
+  height: 60px;
+  width: 650px;
+  margin: 25px 0 120px; }
+  search-form__field {
+    display: inline-block;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #333333;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    height: 60px;
+    width: 500px;
+    border: none;
+    background-color: #ffffff; }
+    search-form__field::-webkit-input-placeholder {
+      font-family: 'Josefin Sans', sans-serif;
+      color: #999999;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 14px;
+      text-align: center;
+      vertical-align: middle; }
+    search-form__field:-ms-input-placeholder {
+      font-family: 'Josefin Sans', sans-serif;
+      color: #999999;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 14px;
+      text-align: center;
+      vertical-align: middle; }
+    search-form__field::-ms-input-placeholder {
+      font-family: 'Josefin Sans', sans-serif;
+      color: #999999;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 14px;
+      text-align: center;
+      vertical-align: middle; }
+    search-form__field::placeholder {
+      font-family: 'Josefin Sans', sans-serif;
+      color: #999999;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 14px;
+      text-align: center;
+      vertical-align: middle; }
+  search-form__btn, search-form__btn span {
+    border: 2px #ffffff solid;
+    color: #ffffff;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    text-transform: uppercase;
+    padding: 20px 38px;
+    background-color: #5474fd;
+    text-align: center;
+    vertical-align: middle;
+    height: 60px; }
+
+.navmenu {
+  height: 80px;
+  background-color: #5474fd; }
+  .navmenu__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+  .navmenu__logo-txt {
+    text-align: left;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 26px;
+    text-transform: uppercase; }
+  .navmenu__items a {
+    font-family: 'Roboto Slab', serif;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 26px;
+    padding: 0 21px;
+    text-decoration: none;
+    text-transform: uppercase; }
+    .navmenu__items a:hover {
+      text-decoration: underline; }
+
+.choose-us {
+  height: 685px;
+  background-image: url(../img/choose-us-bg.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+  .choose-us__wrapper {
+    padding: 120px 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center; }
+  .choose-us .plain {
+    width: 635px;
+    padding: 30px 105px 30px 0; }
+  .choose-us img {
+    padding-bottom: 5px; }
+
+.threesteps {
+  height: 337px;
+  background-color: #333333; }
+  .threesteps__wrapper {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 60px;
+    background-image: url(../img/arcs-50.svg);
+    background-repeat: no-repeat;
+    background-position: center 36px;
+    background-size: 774px 96px; }
+  .threesteps__block {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+  .threesteps__icon {
+    padding: 18px;
+    border-radius: 50%;
+    background-color: #333333;
+    text-align: center;
+    vertical-align: middle; }
+
+.dest {
+  height: 700px; }
+  .dest__block {
+    width: 540px;
+    height: 370px;
+    background-color: rgba(35, 35, 35, 0.9);
+    padding: 50px 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start; }
+  .dest__country {
+    font-family: 'Josefin Sans', sans-serif;
+    color: #e8e8e8;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 26px; }
+  .dest__name {
+    font-family: 'Josefin Sans', sans-serif;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 26px;
+    text-transform: uppercase; }
+  .dest_odd {
+    background-image: url(../img/dest-1-bg.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; }
+    .dest_odd .content-container {
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      justify-content: flex-start; }
+  .dest_even {
+    background-image: url(../img/dest-2-bg.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; }
+    .dest_even .content-container {
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+      justify-content: flex-end; }
+
+.feedback {
+  height: 731px;
+  background-image: url(../img/feedback-bg.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+  .feedback .title {
+    padding: 0 0 90px; }
+  .feedback__wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+  .feedback__block {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch; }
+  .feedback__pic img {
+    width: 445px; }
+  .feedback__txt-block {
+    width: 664px;
+    padding: 30px 60px;
+    background-color: #333333;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+  .feedback__txt:before {
+    content: "« ";
+    font-size: 36px;
+    font-weight: 700;
+    color: #5474fd; }
+  .feedback__arrows-block {
+    -ms-flex-item-align: end;
+    align-self: flex-end;
+    padding: 20px 0; }
+  .feedback__arrow {
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    border: 1px #fff solid;
+    padding: 16px 34px; }
+    .feedback__arrow img {
+      width: 11px; }
+
+.footer {
+  height: 268px;
+  background-color: #232323; }
+  .footer__wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+  .footer__logo img {
+    width: 166px; }
+  .footer__socicons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-line-pack: center;
+    align-content: center; }
+    .footer__socicons i {
+      font-size: 16px;
+      color: #e8e8e8;
+      padding: 20px 10px; }
+    .footer__socicons i:hover {
+      color: #5474fd; }
+
+.title {
+  padding: 20px 0;
+  font-family: 'Roboto Slab', serif;
+  text-align: left;
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 26px; }
+
+.subtitle {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26px;
+  text-transform: uppercase; }
+
+.plain {
+  padding: 10px 0;
+  font-family: 'Josefin Sans', sans-serif;
+  color: #e8e8e8;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px; }
+
+.btn {
+  color: #ffffff;
+  text-align: center;
+  font-family: 'Roboto Slab', serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-transform: uppercase;
+  padding: 20px 38px;
+  background-color: #5474fd;
+  border: none; }
+  .btn:hover {
+    background-color: #849BFD;
+    -webkit-box-shadow: 1px 1px 0 #fff inset;
+    box-shadow: 1px 1px 0 #fff inset; }
